@@ -5,7 +5,7 @@
  */
 package UI;
 
-import static implementacion.EstructuraGeneral.interfaz;
+import static implementacion.Main.interfaz;
 import javax.swing.JOptionPane;
 
 /**

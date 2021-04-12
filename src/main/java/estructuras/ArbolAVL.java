@@ -297,9 +297,9 @@ public class ArbolAVL {
         String codigoNodos = "";
         if(raiz != null) {
             if(nodo.getIzquierdo() == null && nodo.getDerecha() == null) {
-                codigoNodos += "nodo" + nodo.getId() + " [ label =\"" + nodo.getId() + "\"];\n";
+                codigoNodos += "nodo" + nodo.getId() + " [ label =\"" + nodo.getId() + "\", fillcolor=\"lightblue\", style=\"filled\"];\n";
             } else {
-                codigoNodos += "nodo" + nodo.getId() + " [ label =\"<C0>|" + nodo.getId() +"|<C1>\"];\n";
+                codigoNodos += "nodo" + nodo.getId() + " [ label =\"<C0>|" + nodo.getId() +"|<C1>\", fillcolor=\"lightblue\", style=\"filled\"];\n";
             }
             if(nodo.getIzquierdo() != null) {
                 codigoNodos += getCodigoNodos(nodo.getIzquierdo()) + "nodo" + nodo.getId() +":C0->nodo" + nodo.getIzquierdo().getId() + "\n";

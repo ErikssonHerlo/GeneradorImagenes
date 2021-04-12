@@ -11,7 +11,9 @@ import estructuras.MatrizDispersa;
 import implementacion.ArchivosEntrada;
 import implementacion.GeneradorGraphviz;
 import implementacion.EstructuraGeneral;
-import static implementacion.EstructuraGeneral.interfaz;
+import static implementacion.Main.estructuraGeneral;
+import static implementacion.Main.graficador;
+import static implementacion.Main.interfaz;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -29,14 +31,10 @@ public class GenerarImagenes extends javax.swing.JFrame {
      * Creates new form Interfaz
      */
     
-    private EstructuraGeneral estructuraGeneral;
-    private ArchivosEntrada archivosEntrada;
-    private GeneradorGraphviz graficador;
+    
     public GenerarImagenes() {
         initComponents();
-        this.estructuraGeneral = new EstructuraGeneral();
-        this.archivosEntrada = new ArchivosEntrada();
-        this.graficador = new GeneradorGraphviz();
+        
         
         lblApoyo2.setVisible(false);
         identificadorImagenInput.setVisible(false);
@@ -68,8 +66,8 @@ public class GenerarImagenes extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(getPreferredSize());
-        setPreferredSize(new java.awt.Dimension(1400, 900));
-        setSize(new java.awt.Dimension(1400, 900));
+        setPreferredSize(new java.awt.Dimension(1400, 1000));
+        setSize(new java.awt.Dimension(1400, 1000));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Titulo.setFont(new java.awt.Font("DejaVu Serif Condensed", 1, 40)); // NOI18N
@@ -140,10 +138,10 @@ public class GenerarImagenes extends javax.swing.JFrame {
         );
         panelGraficacionLayout.setVerticalGroup(
             panelGraficacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
 
-        getContentPane().add(panelGraficacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 1340, 700));
+        getContentPane().add(panelGraficacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 1340, 800));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

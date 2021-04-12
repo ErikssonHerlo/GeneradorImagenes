@@ -8,7 +8,9 @@ package UI;
 import implementacion.ArchivosEntrada;
 import implementacion.GeneradorGraphviz;
 import implementacion.EstructuraGeneral;
-import static implementacion.EstructuraGeneral.interfaz;
+import static implementacion.Main.archivosEntrada;
+import static implementacion.Main.estructuraGeneral;
+import static implementacion.Main.interfaz;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -24,14 +26,14 @@ public class CargarArchivos extends javax.swing.JFrame {
      * Creates new form Interfaz
      */
     
-    private EstructuraGeneral estructuraGeneral;
-    private ArchivosEntrada archivosEntrada;
-    private GeneradorGraphviz graficador;
+   // private EstructuraGeneral estructuraGeneral;
+    //private ArchivosEntrada archivosEntrada;
+    //private GeneradorGraphviz graficador;
     public CargarArchivos() {
         initComponents();
-        this.estructuraGeneral = new EstructuraGeneral();
-        this.archivosEntrada = new ArchivosEntrada();
-        this.graficador = new GeneradorGraphviz();
+        //this.estructuraGeneral = new EstructuraGeneral();
+        //this.archivosEntrada = new ArchivosEntrada();
+        //this.graficador = new GeneradorGraphviz();
         
     }
 

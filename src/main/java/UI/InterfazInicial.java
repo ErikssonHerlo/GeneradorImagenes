@@ -5,6 +5,10 @@
  */
 package UI;
 
+import static implementacion.Main.interfazCRUDUsuarios;
+import static implementacion.Main.interfazCargaArchivos;
+import static implementacion.Main.interfazGraphviz;
+import static implementacion.Main.interfazImagenes;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,9 +20,7 @@ public class InterfazInicial extends javax.swing.JFrame {
     /**
      * Creates new form Interfaz
      */
-    CargarArchivos interfazCargaArchivos = new CargarArchivos();
-    GraficarMemoria interfazGraphviz = new GraficarMemoria();
-    GenerarImagenes interfazImagenes = new GenerarImagenes();
+    
     public InterfazInicial() {
         initComponents();
     }
@@ -134,7 +136,8 @@ public class InterfazInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_SalirActionPerformed
 
     private void usuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuariosActionPerformed
-        // TODO add your handling code here:
+        interfazCRUDUsuarios.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_usuariosActionPerformed
 
     private void crearImagenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearImagenesActionPerformed

@@ -253,7 +253,7 @@ public class MatrizDispersa {
                 codigo += "subgraph cluster_" + cont + " {\n";
                 while(auxF != null) {
                     String coord = auxF.getX() + "o" + auxF.getY();
-                    codigo += "nodo" + coord + " [ label =\"" + auxF.getContenido() + "\", width = 1.5, style = filled, group = " + cont + " ];\n";
+                    codigo += "nodo" + coord + " [ label =\"" + auxF.getContenido() + "\", width = 1.5, style = filled, group = " + cont + " , fillcolor=\"lightblue\", style=\"filled\"];\n";
                     auxF = auxF.getFilaSiguiente();
                 }
                 cont++;

@@ -28,14 +28,17 @@ public class ArchivosEntrada {
         String codigo = obtenerCadenaArchivo(archivoEntrada);
         StringReader reader = new StringReader(codigo);
         LexerCapas lexer = new LexerCapas(reader);
+        
+        //LexerCapas lexer = new LexerCapas(reader);
         ParserCapas parser = new ParserCapas(lexer, arbolCapas);
         try {
             parser.parse();
         } catch (Exception e) {
-            System.out.println("Error al analizar el codigo de capas: " + e.getMessage());
+           // System.out.println("Error al analizar el codigo de capas: XD" + e.printStackTrace(System.out));
+           e.printStackTrace(System.out);
         }
-          System.out.println(arbolCapas.getRaiz());
-       // System.out.println(arbolCapas.dotCode());
+          //System.out.println(arbolCapas.getRaiz());
+        System.out.println(arbolCapas.dotCode());
     }
     
     public void entradaArchivoImagenes(File archivoEntrada, ListaDobleCircular listaImagenes, ArbolAVL arbolCapas) {
@@ -66,13 +69,16 @@ public class ArchivosEntrada {
     private String obtenerCadenaArchivo(File archivo) {
         try {
             FileReader fileReader = new FileReader(archivo);
+            
             BufferedReader lectorArchivo = new BufferedReader(fileReader);
             String cadena, codigo = "";
             //Almacenamos el codigo en la variable codigo
             while((cadena = lectorArchivo.readLine()) != null) {
                 codigo += cadena + "\n";
             }
+            System.out.println(codigo);
             return codigo;
+            
         } catch (Exception e) {
             System.out.println("Error al leer archivo: " + e.getMessage());
             return null;

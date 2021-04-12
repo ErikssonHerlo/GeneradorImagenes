@@ -1,0 +1,79 @@
+package gramatica.capas;
+
+
+import estructuras.ArbolAVL;
+import estructuras.MatrizDispersa;
+import nodos.NodoArbolAVL;
+import gramatica.TokenMatrizDispersa;
+import java_cup.runtime.*;
+
+class ParserCapas;
+
+parser code {:
+
+    private ArbolAVL arbolCapas;
+MatrizDispersa matriz = new MatrizDispersa();
+    public ParserCapas(LexerCapas lexer, ArbolAVL arbolCapas) {
+        super(lexer);
+        this.arbolCapas = arbolCapas;
+    }
+    public void report_error(String message, Object info) {
+        System.out.println("reporterror");
+    }
+    public void report_fatal_error(String message, Object info) {
+        System.out.println("reportfatal " + info);
+    }
+    @Override
+    public void syntax_error(Symbol s) {
+        System.out.println("linea: " + s.left + "   columna: " + s.right);
+    }
+    protected int error_sync_size() {
+        return 1;
+    }
+
+:}
+
+terminal HEXADECIMAL, NUMERO, LLAVE_A, LLAVE_C, PUNTO_COMA, COMA, COLOR;
+
+non terminal inicio, identificador, declaracion;
+non terminal MatrizDispersa inicio_opciones, datos;
+non terminal TokenMatrizDispersa datos_opciones;
+
+start with inicio;
+
+inicio ::= inicio identificador:id inicio_opciones:matriz
+            {:
+                NodoArbolAVL nuevoNodo = new NodoArbolAVL(id.toString(), matriz);
+                arbolCapas.insertar(nuevoNodo);
+            :}
+            |
+            ;
+
+inicio_opciones ::= LLAVE_A datos:datos_Obtenidos LLAVE_C
+                    {:
+                        RESULT = datos_Obtenidos;
+                    :}
+                    ;
+
+datos ::=  datos:matriz datos_opciones:tokenM  
+            {:
+                System.out.println("Token obtenido: " + tokenM.getFila() + " , " + tokenM.getColumna() + " , " + tokenM.getColor());
+                matriz.insertar(tokenM.getFila(), tokenM.getColumna(), tokenM.getColor());
+                RESULT = matriz;
+            :}
+            | datos_opciones:tokenM /*Datos de Matriz vacios*/  
+            {:MatrizDispersa matriz = new MatrizDispersa();
+		        matriz.insertar(tokenM.getFila(), tokenM.getColumna(), tokenM.getColor());
+                RESULT = matriz;
+        	:}
+            ;
+
+datos_opciones ::=  NUMERO:fila COMA NUMERO:columna COMA COLOR:color PUNTO_COMA 
+{:
+    RESULT = new TokenMatrizDispersa(Integer.parseInt(fila.toString()), Integer.parseInt(columna.toString()), color.toString());
+:}
+                    ;
+
+identificador ::=   HEXADECIMAL:param  {:RESULT = param;:}
+                    | NUMERO:param      {:RESULT = param;:}
+                    ;

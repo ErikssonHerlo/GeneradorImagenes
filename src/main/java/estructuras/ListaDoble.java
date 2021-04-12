@@ -119,7 +119,7 @@ public class ListaDoble {
         codigo += "subgraph cluster_2 {\n";
         NodoListaDoble aux = primero;
         while(aux != null) {
-            codigo += "capa" + padre + "o" + aux.getNodoCapa().getId() + " [ label =\"capa: " + aux.getNodoCapa().getId() + "\"];\n";
+            codigo += "capa" + padre + "o" + aux.getNodoCapa().getId() + " [ label =\"capa: " + aux.getNodoCapa().getId() + "\", fillcolor=\"lightblue\", style=\"filled\"];\n";
             aux = aux.getSiguiente();
         }
         aux = primero;

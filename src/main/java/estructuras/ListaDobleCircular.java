@@ -152,7 +152,7 @@ public class ListaDobleCircular {
             
             do {
                 salidaGraphviz += "subgraph cluster_" + c + " {\n";
-                salidaGraphviz += "nodo" + aux.getId() + " [ label =\"id: " + aux.getId() + "\"];\n";
+                salidaGraphviz += "nodo" + aux.getId() + " [ label =\"id: " + aux.getId() + "\", fillcolor=\"lightblue\", style=\"filled\"];\n";
                 salidaGraphviz += aux.getListaCapas().getDotCode(aux.getId());
                 salidaGraphviz += "}\n";
                 c++;

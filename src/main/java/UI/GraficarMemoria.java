@@ -9,7 +9,9 @@ import estructuras.MatrizDispersa;
 import implementacion.ArchivosEntrada;
 import implementacion.GeneradorGraphviz;
 import implementacion.EstructuraGeneral;
-import static implementacion.EstructuraGeneral.interfaz;
+import static implementacion.Main.estructuraGeneral;
+import static implementacion.Main.graficador;
+import static implementacion.Main.interfaz;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -27,14 +29,9 @@ public class GraficarMemoria extends javax.swing.JFrame {
      * Creates new form Interfaz
      */
     
-    private EstructuraGeneral estructuraGeneral;
-    private ArchivosEntrada archivosEntrada;
-    private GeneradorGraphviz graficador;
     public GraficarMemoria() {
         initComponents();
-        this.estructuraGeneral = new EstructuraGeneral();
-        this.archivosEntrada = new ArchivosEntrada();
-        this.graficador = new GeneradorGraphviz();
+        
         lblBuscar.setVisible(false);
         txtBuscar.setVisible(false);
         
@@ -140,7 +137,7 @@ public class GraficarMemoria extends javax.swing.JFrame {
                 //if((capaBuscada = manejadorPrincipal.getArbolCapas().buscar(capaABuscar)) != null) {
                 if((capaBuscada = estructuraGeneral.getArbolCapas().buscar(capaABuscar)) != null) {
                     MatrizDispersa matrizObtenida = (MatrizDispersa) capaBuscada.getContenido();
-                    //manejadorGraficas.graficarEstadoMemoria(matrizObtenida.dotCode(), "CapaSolicitada", jPanel6);
+                  
                     graficador.graficarEstadoMemoria(matrizObtenida.dotCode(), "Capa_Por_Medio_De_Busqueda");
                 } else {
                     JOptionPane.showMessageDialog(null, "No se encontró la capa " + capaABuscar);
@@ -154,7 +151,7 @@ public class GraficarMemoria extends javax.swing.JFrame {
                     System.out.println(imagen.dotCode(estructuraGeneral.getArbolCapas()));
                     String codigo = imagen.dotCode(estructuraGeneral.getArbolCapas());
                    // manejadorGraficas.graficarEstadoMemoria(codigo, "ImagenConArbol", jPanel6);
-                   graficador.graficarEstadoMemoria(codigo, "");
+                   graficador.graficarEstadoMemoria(codigo, "Imagen_Con_Arbol_De_Capas");
                 } else {
                     JOptionPane.showMessageDialog(null, "No se ha encontrado la imagen: " + imagenSolicitada);
                 }

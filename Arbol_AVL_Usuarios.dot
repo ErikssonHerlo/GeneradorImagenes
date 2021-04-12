@@ -1,4 +1,59 @@
 digraph arbol {
 rankdir=TB
 node [shape = record]
+nodouserG [ label ="<C0>|userG|<C1>", fillcolor="lightblue", style="filled"];
+nodouser8 [ label ="<C0>|user8|<C1>", fillcolor="lightblue", style="filled"];
+nodouser6 [ label ="<C0>|user6|<C1>", fillcolor="lightblue", style="filled"];
+nodouser4 [ label ="<C0>|user4|<C1>", fillcolor="lightblue", style="filled"];
+nodouser2 [ label ="<C0>|user2|<C1>", fillcolor="lightblue", style="filled"];
+nodouser1 [ label ="user1", fillcolor="lightblue", style="filled"];
+nodouser2:C0->nodouser1
+nodouser3 [ label ="user3", fillcolor="lightblue", style="filled"];
+nodouser2:C1->nodouser3
+nodouser4:C0->nodouser2
+nodouser5 [ label ="user5", fillcolor="lightblue", style="filled"];
+nodouser4:C1->nodouser5
+nodouser6:C0->nodouser4
+nodouser7 [ label ="user7", fillcolor="lightblue", style="filled"];
+nodouser6:C1->nodouser7
+nodouser8:C0->nodouser6
+nodouserB [ label ="<C0>|userB|<C1>", fillcolor="lightblue", style="filled"];
+nodouser9 [ label ="<C0>|user9|<C1>", fillcolor="lightblue", style="filled"];
+nodouserA [ label ="userA", fillcolor="lightblue", style="filled"];
+nodouser9:C1->nodouserA
+nodouserB:C0->nodouser9
+nodouserD [ label ="<C0>|userD|<C1>", fillcolor="lightblue", style="filled"];
+nodouserC [ label ="userC", fillcolor="lightblue", style="filled"];
+nodouserD:C0->nodouserC
+nodouserF [ label ="<C0>|userF|<C1>", fillcolor="lightblue", style="filled"];
+nodouserE [ label ="userE", fillcolor="lightblue", style="filled"];
+nodouserF:C0->nodouserE
+nodouserD:C1->nodouserF
+nodouserB:C1->nodouserD
+nodouser8:C1->nodouserB
+nodouserG:C0->nodouser8
+nodouserM [ label ="<C0>|userM|<C1>", fillcolor="lightblue", style="filled"];
+nodouserJ [ label ="<C0>|userJ|<C1>", fillcolor="lightblue", style="filled"];
+nodouserI [ label ="<C0>|userI|<C1>", fillcolor="lightblue", style="filled"];
+nodouserH [ label ="userH", fillcolor="lightblue", style="filled"];
+nodouserI:C0->nodouserH
+nodouserJ:C0->nodouserI
+nodouserL [ label ="<C0>|userL|<C1>", fillcolor="lightblue", style="filled"];
+nodouserK [ label ="userK", fillcolor="lightblue", style="filled"];
+nodouserL:C0->nodouserK
+nodouserJ:C1->nodouserL
+nodouserM:C0->nodouserJ
+nodouserQ [ label ="<C0>|userQ|<C1>", fillcolor="lightblue", style="filled"];
+nodouserO [ label ="<C0>|userO|<C1>", fillcolor="lightblue", style="filled"];
+nodouserN [ label ="userN", fillcolor="lightblue", style="filled"];
+nodouserO:C0->nodouserN
+nodouserP [ label ="userP", fillcolor="lightblue", style="filled"];
+nodouserO:C1->nodouserP
+nodouserQ:C0->nodouserO
+nodouserR [ label ="<C0>|userR|<C1>", fillcolor="lightblue", style="filled"];
+nodouserS [ label ="userS", fillcolor="lightblue", style="filled"];
+nodouserR:C1->nodouserS
+nodouserQ:C1->nodouserR
+nodouserM:C1->nodouserQ
+nodouserG:C1->nodouserM
 }

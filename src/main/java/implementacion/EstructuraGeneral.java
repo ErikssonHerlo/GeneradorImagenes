@@ -15,15 +15,15 @@ import estructuras.ListaDobleCircular;
  * @author erikssonherlo
  */
 public class EstructuraGeneral {
-    public static InterfazInicial interfaz = new InterfazInicial();
-    private ArbolAVL arbolCapas;
+    
+    private ArbolAVL arbolCapas ;
     private ListaDobleCircular listaImagenes;
     private ArbolAVL arbolUsuarios;
 
     public EstructuraGeneral() {
-        this.arbolCapas = arbolCapas;
-        this.listaImagenes = listaImagenes;
-        this.arbolUsuarios = arbolUsuarios;
+        this.arbolCapas = new ArbolAVL();
+        this.listaImagenes = new ListaDobleCircular();
+        this.arbolUsuarios = new ArbolAVL();
     }
 
     public ArbolAVL getArbolCapas() {
@@ -52,15 +52,5 @@ public class EstructuraGeneral {
 
    
 
-    
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        
-        
-        interfaz.setVisible(true);
-    }
     
 }

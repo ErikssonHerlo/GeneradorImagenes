@@ -1,0 +1,92 @@
+package gramatica.usuarios;
+
+import estructuras.ArbolAVL;
+import estructuras.ListaDobleImagenes;
+import estructuras.ListaDobleCircular;
+import nodos.NodoArbolAVL;
+import nodos.NodoListaDobleCircular;
+import java_cup.runtime.*;
+
+
+class ParserUsuarios;
+
+parser code {:
+
+    private ArbolAVL arbolUsuarios;
+    private ListaDobleCircular listaImagenes;
+
+    public ParserUsuarios(LexerUsuarios lexer, ArbolAVL arbolUsuarios, ListaDobleCircular listaImagenes) {
+        super(lexer);
+        this.arbolUsuarios = arbolUsuarios;
+        this.listaImagenes = listaImagenes;
+    }
+
+    public void report_error(String message, Object info) {
+        System.out.println("reporterror");
+    }
+    public void report_fatal_error(String message, Object info) {
+        System.out.println("reportfatal " + info);
+    }
+    @Override
+    public void syntax_error(Symbol s) {
+        System.out.println("linea: " + s.left + "   columna: " + s.right);
+    }
+    protected int error_sync_size() {
+        return 1;
+    }
+
+:}
+
+terminal LLAVE_A, LLAVE_C, COMA, PUNTOS, PUNTO_COMA, NUMERO, HEXADECIMAL;
+
+non terminal inicio, inicio_p, identificador;
+non terminal ListaDobleImagenes imagenes;
+
+start with inicio;
+
+inicio ::=  inicio_p inicio
+            |
+            ;
+
+inicio_p ::=    identificador:id PUNTOS imagenes:lista  PUNTO_COMA
+                {:
+                    try {
+                        NodoArbolAVL nuevoNodo = new NodoArbolAVL(id.toString(), lista);
+                        System.out.println("Se insertara un Nuevo Usuario con el id: " + id.toString());
+                        arbolUsuarios.insertar(nuevoNodo);
+                        System.out.println("Se insertó al usuario " + id.toString() + " y su lista es: ");
+                    } catch(RuntimeException e) {
+                        System.out.println("Error al insertar al usuario: " + id.toString());
+                    }
+                :}
+                ;
+
+imagenes ::=    imagenes:lista COMA identificador:id
+                {:
+                    try {
+                        NodoListaDobleCircular imagen = listaImagenes.buscar(id.toString());
+                        lista.insertar(imagen);
+                        System.out.println("Se insertó la imagen en la lista: " + id.toString());
+                    } catch(Exception e) {
+                        System.out.println("Error al buscar la imagen: " + id.toString());
+                    }
+                    RESULT = lista;
+                :}
+                | imagenes:lista identificador:id
+                {:
+                    try {
+                        NodoListaDobleCircular imagen = listaImagenes.buscar(id.toString());
+                        lista.insertar(imagen);
+                        System.out.println("Se insertó la imagen en la lista: " + id.toString());
+                    } catch(Exception e) {
+                        System.out.println("Error al buscar la imagen: " + id.toString());
+                    }
+                    RESULT = lista;
+                :}
+                | /*Fin de imagenes o sin imagenes*/   
+			 {:System.out.println("Se creó la lista"); RESULT = new ListaDobleImagenes();:}
+                ;
+
+identificador ::=   NUMERO:param         {:RESULT=param;:}
+                    | HEXADECIMAL:param {:RESULT=param;:}
+                    ;

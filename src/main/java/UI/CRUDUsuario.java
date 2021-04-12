@@ -5,7 +5,7 @@
  */
 package UI;
 
-import static implementacion.EstructuraGeneral.interfaz;
+import static implementacion.Main.interfaz;
 import javax.swing.JOptionPane;
 
 /**
@@ -106,14 +106,10 @@ public class CRUDUsuario extends javax.swing.JFrame {
 
     private void modificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarUsuarioActionPerformed
         // TODO add your handling code here:
+     ModificarUsuario interfazModificarUsuario = new ModificarUsuario();
+     interfazModificarUsuario.setVisible(true);
+     this.setVisible(false);
      
-        }
-        public static void main(String args[]) {
-            java.awt.EventQueue.invokeLater(new Runnable() {
-                public void run() {
-                    new CRUDUsuario().setVisible(true);
-                }
-            });
     }//GEN-LAST:event_modificarUsuarioActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
@@ -122,11 +118,15 @@ public class CRUDUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_SalirActionPerformed
 
     private void crearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearUsuarioActionPerformed
-        // TODO add your handling code here:
+        CrearUsuario interfazCrearUsuario = new CrearUsuario();
+        interfazCrearUsuario.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_crearUsuarioActionPerformed
 
     private void eliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarUsuarioActionPerformed
-        // TODO add your handling code here:
+        EliminarUsuario interfazEliminarUsuario = new EliminarUsuario();
+        interfazEliminarUsuario.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_eliminarUsuarioActionPerformed
 
     private void menuInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuInicialActionPerformed

@@ -1,6 +1,7 @@
-digraph arbol {
+digraph listaDoble {
 rankdir=TB
 node [shape = record]
+subgraph cluster_1 {
 nodo4 [ label ="<C0>|4|<C1>", fillcolor="lightblue", style="filled"];
 nodo2 [ label ="<C0>|2|<C1>", fillcolor="lightblue", style="filled"];
 nodo1 [ label ="1", fillcolor="lightblue", style="filled"];
@@ -18,4 +19,19 @@ nodo9 [ label ="9", fillcolor="lightblue", style="filled"];
 nodo8:C1->nodo9
 nodo6:C1->nodo8
 nodo4:C1->nodo6
+color="White";
+}
+subgraph cluster_2 {
+capa5o1 [ label ="capa: 1", fillcolor="lightblue", style="filled"];
+capa5o2 [ label ="capa: 2", fillcolor="lightblue", style="filled"];
+capa5o3 [ label ="capa: 3", fillcolor="lightblue", style="filled"];
+capa5o4 [ label ="capa: 4", fillcolor="lightblue", style="filled"];
+capa5o5 [ label ="capa: 5", fillcolor="lightblue", style="filled"];
+nodoIm5->capa5o1->capa5o2->capa5o3->capa5o4->capa5o5
+}
+capa5o1->nodo1
+capa5o2->nodo2
+capa5o3->nodo3
+capa5o4->nodo4
+capa5o5->nodo5
 }
