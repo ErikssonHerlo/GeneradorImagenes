@@ -124,17 +124,15 @@ public class GraficarMemoria extends javax.swing.JFrame {
     private void graficarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graficarActionPerformed
           switch (comboTipoGrafica.getSelectedIndex()) {
             case 0:
-                //manejadorGraficas.graficarEstadoMemoria(manejadorPrincipal.getListaImagenes().dotCode(), "ListaImagenes", jPanel6);
-                graficador.graficarEstadoMemoria(estructuraGeneral.getListaImagenes().dotCode(), "Lista_Doble_Imagenes");
+                 graficador.graficarEstadoMemoria(estructuraGeneral.getListaImagenes().dotCode(), "Lista_Doble_Imagenes");
                 break;
             case 1:
-                //manejadorGraficas.graficarEstadoMemoria(manejadorPrincipal.getArbolCapas().dotCode(), "ArbolCapas", jPanel6);
                  graficador.graficarEstadoMemoria(estructuraGeneral.getArbolCapas().dotCode(),"Arbol_AVL_Capas");
                 break;
             case 2:
                 NodoArbolAVL capaBuscada;
                 String capaABuscar = txtBuscar.getText();
-                //if((capaBuscada = manejadorPrincipal.getArbolCapas().buscar(capaABuscar)) != null) {
+  
                 if((capaBuscada = estructuraGeneral.getArbolCapas().buscar(capaABuscar)) != null) {
                     MatrizDispersa matrizObtenida = (MatrizDispersa) capaBuscada.getContenido();
                   
@@ -146,18 +144,18 @@ public class GraficarMemoria extends javax.swing.JFrame {
             case 3:
                 NodoListaDobleCircular imagen;
                 String imagenSolicitada = txtBuscar.getText();
-                //if((imagen = manejadorPrincipal.getListaImagenes().buscar(imagenSolicitada)) != null) {
+              
                  if((imagen = estructuraGeneral.getListaImagenes().buscar(imagenSolicitada)) != null) {
                     System.out.println(imagen.dotCode(estructuraGeneral.getArbolCapas()));
                     String codigo = imagen.dotCode(estructuraGeneral.getArbolCapas());
-                   // manejadorGraficas.graficarEstadoMemoria(codigo, "ImagenConArbol", jPanel6);
+                 
                    graficador.graficarEstadoMemoria(codigo, "Imagen_Con_Arbol_De_Capas");
                 } else {
                     JOptionPane.showMessageDialog(null, "No se ha encontrado la imagen: " + imagenSolicitada);
                 }
                 break;
             case 4:
-                //manejadorGraficas.graficarEstadoMemoria(manejadorPrincipal.getArbolUsuarios().dotCode(), "ArbolUsuarios", jPanel6);
+               
                 graficador.graficarEstadoMemoria(estructuraGeneral.getArbolUsuarios().dotCode(), "Arbol_AVL_Usuarios");
                 break;
             default:

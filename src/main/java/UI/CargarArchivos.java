@@ -149,8 +149,6 @@ public class CargarArchivos extends javax.swing.JFrame {
             File archivo = fileChooser.getSelectedFile();
              informacionImagenes.setText("El Archivo seleccionado fue: "+ archivo.getName());
           
-            //Enviamos a analizar el archivo a importar
-            //manejadorArchivos.manejarArchivoIm(archivo, manejadorPrincipal.getListaImagenes(), manejadorPrincipal.getArbolCapas());
             archivosEntrada.entradaArchivoImagenes(archivo, estructuraGeneral.getListaImagenes(), estructuraGeneral.getArbolCapas());
         } else {
             informacionImagenes.setText("Error al seleccionar el archivo a importar\n");
@@ -199,8 +197,7 @@ public class CargarArchivos extends javax.swing.JFrame {
         if(comprobante == JFileChooser.APPROVE_OPTION) {
             File archivo = fileChooser.getSelectedFile();
             informacionUsuarios.setText("El Archivo seleccionado fue: "+ archivo.getName());
-            //Enviamos a analizar el archivo a importar
-           // manejadorArchivos.manejarArchivoUsr(archivo, manejadorPrincipal.getArbolUsuarios(), manejadorPrincipal.getListaImagenes());
+            
             archivosEntrada.entradaArchivoUsuarios(archivo, estructuraGeneral.getArbolUsuarios(), estructuraGeneral.getListaImagenes());
         } else {
             informacionUsuarios.setText("Error al seleccionar el archivo a importar\n");
