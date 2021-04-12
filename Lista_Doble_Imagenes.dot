@@ -1,0 +1,6 @@
+digraph listaDoble {
+node [shape = box]
+edge [dir = both]
+e0[ shape = point, width = 0 ];
+e1[ shape = point, width = 0 ];
+}
